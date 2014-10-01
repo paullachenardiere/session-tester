@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 1.5.0_16-133 (Apple Inc.)
+Class-Path: resources/ lib/appframework-1.0.3.jar lib/swing-worker-1.1.jar lib/swing-layout-1.0.4.jar lib/AppleJavaExtensions.jar

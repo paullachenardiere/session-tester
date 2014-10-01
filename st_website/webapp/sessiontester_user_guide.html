@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Session Tester User Guide</title>
+  <meta name="author" content="Jonathan Kohl">
+  <meta name="generator" content="By hand, with a text editor.">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style type="text/css">
+body {
+	margin-left:	5%;
+	margin-right: 5%;
+	padding: 0;
+	background:	#fff;
+	color: #333;
+	font: normal small Geneva, Verdana, Arial, sans-serif;
+     }
+h1   {
+       font-size: 175%; 
+     }
+h2   {
+       font-size: 135%; 
+     }
+h3   {
+       font-size: 120%; 
+     }
+h4   {
+       font-size: 100%; 
+     }
+p    {
+       margin-bottom: 10px; 
+      }
+div.testexample 
+     {
+       background: #fff;
+       margin-left:  10%;
+       margin-right: 10%;
+       padding: 1em;
+       font-family: "Courier New", monospace;
+       font-size: 11pt;
+       color: black;
+       border: 1px solid #000;
+       border-width: thin; 
+       margin-bottom: 10px;
+     }
+div.htmlexample 
+     {
+       background: #ccc;
+       margin-left:  10%;
+       margin-right: 10%;
+       padding: 1em;
+       font-family: "Courier New", monospace;
+       font-size: 11pt;
+       color: blue;
+       border: 1px solid #000;
+       border-width: thin; 
+       margin-bottom: 10px;
+     }
+     div.appexample 
+     {
+       background: #efefef;
+       margin-left:  10%;
+       margin-right: 10%;
+       padding: 1em;
+       font: normal small Geneva, Verdana, Arial, sans-serif;
+       font-size: 11pt;
+       color: #000;
+       border: 1px solid #000;
+       border-width: thin; 
+       margin-bottom: 10px;
+     }
+  </style>
+</head>
+<body>
+<table border=0><tr><td><img
+ src="images/session_tester.png">&nbsp;&nbsp;</td>
+ <td><h1>Session Tester User Guide</h1></tr></table>
+<h2>Introduction</h2>
+<p>"Session Tester" (temporary name, permanent name will appear in the beta phase) is a tool for managing and recording  <a
+ href="http://en.wikipedia.org/wiki/Session-based_testing">Session-Based Testing</a>. Session Tester has a timer so you can keep your test sessions at the desired length, and it provides an easy way to record session notes. Notes are stored in an XML format in a ".Session Tester" folder in your user directory. (On Windows, that would be something like: "C:\Documents and Settings\Jonathan\.Session Tester". Session Tester can generate HTML versions of these reports as well.</p>
+
+<h3>Prerequisites</h3>
+<p>To use the tool, users will need to install the 1.6.0_06 or greater version of the JRE (Java Runtime Environment) or JDK which includes the JRE.</p>
+
+<ul>
+  <li>Download the JDK from here: <a href="http://java.sun.com/javase/downloads/index.jsp">Java SE Downloads Page</a>. </li>
+  <ul><li>Select either: Java Runtime Environment (JRE) 6 Update 7</li> 
+   <li>or: JDK 6 Update 7</li></ul>
+
+</ul>
+<p>If you are unfamiliar with Session-Based Testing, read this article by Jon Bach: <a href="http://www.satisfice.com/articles/sbtm.pdf">Session-Based Test Management</a>. </p>
+
+<h1>Getting Started</h1>
+<p>This tool should work on Windows, Macs and Linux machines, as long as you have the right JDK installed.</p>
+<h2>Installation</h2>
+<h3>Step 1 - Install The Correct JRE or JDK</h3>
+<p>On Windows, the simplest way to install the JRE is to download the <a
+ href="http://java.sun.com/javase/downloads/index.jsp">version 6 JRE</a> and follow the installation directions. Make sure that your JAVA_HOME variable is correct. (Check your environment variables.) To test, open a command prompt and type: "java -version" and hit enter. The output should look something like this:</p>
+ <div class="testexample"> C:\Documents and Settings\Jonathan>java -version <br />
+java version "1.6.0_06" <br />
+Java(TM) SE Runtime Environment (build 1.6.0_06-b02) <br />
+Java HotSpot(TM) Client VM (build 10.0-b22, mixed mode, sharing)</div>
+
+<h3>Step 2 - Install Session Tester</h3>
+<p>Unzip Session Tester into a working directory, such as C:/Tools/Session Tester.</p>
+<p>Run Session Tester:
+Just double click on the "Session Tester.jar" file in your Session Tester directory to start it. The jar file is an executable.</p>
+<p>To run from the command line, type "java -jar Session Tester.jar":
+ <div class="testexample"> C:\tools\Session Tester>java -jar Session Tester.jar</div> <br />
+
+<h2>Configuring Your Test Session</h2>
+<p>Once you have started Zeit, the application should open with some options for you to fill in.</p>
+
+<h3>Session Settings</h3>
+<p>Before you start the timer and begin recording notes, buts, ideas, thoughts, etc. Session Tester requires you to fill in some information.</p>
+
+<h4>Required <i>Tester</i> Field </h4>
+<p>Enter the name(s) of the tester(s) involved in the session. It may just be you, or you may have a pair or a trio.</p>
+<div class="appexample ">Tester: <input name="typeinme" type="text"></a></div>
+ 
+<h4>Required <i>Mission</i> Field </h4>
+<p>This field records what you are going to test for your session.</p>
+<div class="appexample ">Mission: <input name="typeinme" type="text"></a></div>
+<p>Examples might be: "test the login of the new intranet page" ...</p>
+
+
+<h4>Required <i>Session Length</i> Drop-down Entry</h4>
+<p>Choose the length of your test session here. Zeit defaults to 30 minutes and maxes out at 120 mins. </p>
+<div class="appexample ">Session Length:
+<select name="selectme">
+<option name="1">30</option>
+<option name="2">60
+</option>
+<option name="3">90
+</option>
+<option name="4">120
+</option>
+</select> minutes
+</div>
+
+
+
+
+<h4>Optional <i>Mission Reminder</i> Setting</h4>
+<p>This is the "are we staying on track" nagging device. Often when testers are working in sessions, they tell me that they got off track for a long period of time and would like to have some sort of reminder. Here it is - you check the box to turn on the reminder and set it to remind you every few minutes.</p>
+<div class="appexample ">Mission Reminder?: <input name="checkme" value="1" type="checkbox"> yes <select name="selectme">
+<option name="1">5</option>
+<option name="2">10
+</option>
+<option name="3">15
+</option>
+</select> minutes </div>
+<p>Every 5, 10 or 15 minutes, you will be notified and reminded of what your session is.</p>
+ 
+ 
+<h4>Optional <i>Session End Warning</i> Setting</h4>
+<p>This will notify you when your session is nearing the end.</p>
+<div class="appexample ">Session End Warning?: <input name="checkme" value="1" type="checkbox"> yes <select name="selectme">
+<option name="1">5</option>
+<option name="2">10
+</option>
+<option name="3">15
+</option>
+</select> minutes </div>
+<p>Now 5, 10 or 15 minutes before the end of your session, you will be notified that your session time is running out.</p>
+
+<h4>Click <i>Start</i> to Begin</h4>
+<p>Once you have the required fields filled out and are ready to get going, just click the button:</p>
+<div class="appexample"><input name="clickme" value="   Start   " type="button"> </div>
+
+<h2>Running Your Test Session<h2>
+<h3>Features:</h3>
+
+<h4>Note Taking Field</h4>
+<p>Once you have started your session, most of the application space is dedicated for note-taking. You can write anything you need to track here through your session. There are several "tags" that Zeit uses to format the output files in XML and HTML if needed. The Notes field has your mission above it, and will default with an "@notes" tag that you can begin typing under.
+</p>
+<div class="appexample">
+Mission: To test the credit card validation code
+<textarea rows="8" cols="100">
+@notes
+- Performance is a bit sluggish on step 3, we should dig into this more deeply.
+- The "Buy It Now" button is partially obscured on Step 5, we should check on other browsers.
+
+@issue
+- Test mastercard number is not working.
+</textarea></div>
+<h4>Timer</h4>
+<p>At the bottom of the screen, you will see a timer that shows you how much time is remaining in your test session.</p>
+
+<h3>Stopping or Pausing</h3>
+<p>You may have an interruption, or need to take some time to get things sorted out before continuing for whatever reason. In that case, use the Pause button:</p>
+<div class="appexample"><input name="clickme" value="   Pause   " type="button"> </div>
+<p> To resume your session, and reactivate the timer, click the "Resume" button.</p>
+<div class="appexample"><input name="clickme" value="   Resume   " type="button"> </div>
+<p>If you need to end early, use the Stop button to save your work and end the session. Your session file will be saved at this point.</p>
+<div class="appexample"><input name="clickme" value="   Stop   " type="button"> </div>
+
+<h2>Recording Notes</h2>
+<p>The power of SBTM is the ability to record your thoughts and observations, and Zeit provides a custom solution for testers to be able to do this. Different categories are determined by the use of tags. Tags tell Zeit how to organize your output file.</p>
+<h3>Tags</h3>
+<p>Your session notes are organized into categories. Zeit defaults to "Notes", signified by the <i>@notes</i> tag at the top left of your notes section. You can enter all your information under this tag, or use multiple tags (the "Tags" Dropdown in the top right corner contains the permissible tags.) </p>
+<p>To use tags, either type the name of the tag and begin entering information under it, or select it from the "Tags" dropdown box. You can use as many or as few as you like. These tags are used by the application to create the XML output, so if you put in a tag that Zeit doesn't recognize, it will just put your information inside the last tag you selected.</p>
+
+
+<h4>Notes - <i>@notes</i></h4>
+<p>This is the default tag, and anything you enter below this tag will be saved in the  &lt;notes&gt; &lt;/notes&gt; section of the XML document. To use this tag, just type below it, and save your session file. </p>
+<p>Typical notes are thoughts, observations and ideas you get while testing the software.</p>
+
+<h4>Issue - <i>@issue</i></h4>
+<p>Either select this tag from the tags dropdown, or just type in: "@issue" and begin typing beneath it. Anything you enter below this tag will be saved in the  &lt;issues&gt; &lt;/issues&gt; section of the XML document.</p>
+<p>Typical issues are items that prevent you from testing, or behavior that should be investigated later to see if it is a bug or not.</p>
+
+<h4>Bug - <i>@bug</i></h4>
+<p>Either select this tag from the tags dropdown, or just type in: "@bug" and begin typing beneath it. Anything you enter below this tag will be saved in the  &lt;bugs&gt; &lt;/bugs&gt; section of the XML document.</p>
+<p>Enter in anything that bugs you here.</p>
+
+<h4>Data - <i>@data</i></h4>
+<p>Either select this tag from the tags dropdown, or just type in: "@data" and begin typing beneath it. Anything you enter below this tag will be saved in the  &lt;data&gt; &lt;/data&gt; section of the XML document.</p>
+<p>Any special data files, or database or other persistence setup that was used can be entered here, or special kinds of data you used in testing can be recorded here.</p>
+
+<h4>Task - <i>@task</i></h4>
+<p>Either select this tag from the tags dropdown, or just type in: "@task" and begin typing beneath it. Anything you enter below this tag will be saved in the  &lt;task&gt; &lt;/task&gt; section of the XML document.</p>
+<p>This can be used to show the task breakdown used when testing.</p>
+
+<h2>Output File</h2>
+<p>Session Tester session files are stored in your user folder, in a folder called ".Session Tester". The subfolders are arranged by year, month and date. The output files are in XML format, with a date-based naming convention.</p>
+<p>Here is a very simple example of an output file: <br />
+ <b> &lt;?xml version="1.0" encoding="UTF-8" ?&gt; <br />
+  &lt;testingSession&gt; <br />
+  &lt;start&gt;Sat Jul 26 22:02:38 MDT 2008&lt;/start&gt;  <br />
+  &lt;tester&gt;Jonathan&lt;/tester&gt;  <br />
+  &lt;mission&gt;Test Zeit's new parser mechanism&lt;/mission&gt;  <br />
+  &lt;tasks /&gt;  <br />
+  &lt;data /&gt;  <br />
+  &lt;notes&gt;Things seem to be working well. &lt;/notes&gt; <br /> 
+  &lt;issues /&gt;  <br />
+  &lt;bugs /&gt;  <br />
+  &lt;/testingSession&gt; </b><br />
+</p>
+<p>For regulatory compliance, XML can be just fine, but check with your subject matter expert in your company to see what they prefer to use. XML is a lingua franca, so you can write your own parser to extract into other formats if you wish. Zeit also allows you to output all your session files to HTML which your users may find easier to read. To generate HTML files, simply go to your "Actions" file menu and select "Generate Web Report" which will convert and output all your session files into HTML, and store them in a folder called ".Session Tester_report" also in your user folder.</p>
+<h2>HTML Output</h2>
+<p>If you would like to output all of your session files on your machine into HTML, go to your File menu, and select "Actions" > "Generate Web Report". This will create a new  ".Session_Tester_report" in your user folder, and will have HTML copies of all the XML session files in your ".Session_Tester" folder. </p>
+
+<h2>Glossary</h2>
+TBD
+<h2>Feedback</h2>
+<p>Questions? Comments? The development team like to hear your
+comments and suggestions for improvement. Feel free to use the sourceforge tracker for bug and feature requests, or email <a href="mailto:kohljonathan@gmail.com">kohljonathan@gmail.com</a>.
+</p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+  <Product Id="9263DD99-02E2-4d01-AFAA-D6D13F41D02A" UpgradeCode="{CDC1D5AC-68CF-4494-8D15-554AF9C1EDBE}" Name="Session Tester" Language="1033" Version="0.2.1.0" Manufacturer="gnu" UpgradeCode="6d0d1755-2608-4fd9-90fd-c274b42ade3f">
+    <Package InstallerVersion="200" Compressed="yes" />
+
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+   
+    <!-- UI Configuration-->
+    <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <UIRef Id="WixUI_InstallDir" />
+    
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- For Start Menu -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name = "Session Tester"/>
+      </Directory>
+      <!-- Application Files -->      
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="Session Tester">
+          <Component Id="SessionTester.exe" Guid="A16AD80A-0D3B-432b-8D44-A62CA61206E1">
+            <File Id="SessionTester.exe" Source="..\dist\SessionTester.exe" KeyPath="yes" Checksum="yes"/>
+          </Component>
+          <Directory Id="lib" Name="lib">
+            <Component Id="appframework_1.0.3.jar" Guid="5C9F5D3C-2977-421a-AA61-7406A9849A2D">
+              <File Id="appframework_1.0.3.jar" Source="..\dist\lib\appframework-1.0.3.jar" KeyPath="yes" Checksum="yes"/>
+            </Component>
+            <Component Id="AppleJavaExtensions.jar" Guid="5C58050F-C3EA-42bf-A01E-1AF1FA69CCE5">
+              <File Id="AppleJavaExtensions.jar" Source="..\dist\lib\AppleJavaExtensions.jar" KeyPath="yes" Checksum="yes"/>
+            </Component>
+            <Component Id="swing_worker_1.1.jar" Guid="477B7021-4A7F-4b66-90EF-739740E2ED5C">
+              <File Id="swing_worker_1.1.jar" Source="..\dist\lib\swing-worker-1.1.jar" KeyPath="yes" Checksum="yes"/>
+            </Component>
+          </Directory>
+          <Directory Id="resources" Name="resources">
+            <Component Id="priming.txt" Guid="9F9AAD69-2A8D-43df-B6E9-91F59AC69E50">
+              <File Id="priming.txt" Source="..\dist\resources\priming.txt" KeyPath="yes" Checksum="yes"/>
+            </Component>
+            <Component Id="testheuristicscheatsheetv1.pdf" Guid="5D00F6F3-3D3E-4d3d-8E8B-D7A53E533011">
+              <File Id="testheuristicscheatsheetv1.pdf" Source="..\dist\resources\testheuristicscheatsheetv1.pdf" KeyPath="yes" Checksum="yes"/>
+            </Component>
+            <Component Id="sessiontester_user_guide.html" Guid="B4936B36-55EA-4dfe-8502-5FBA4D0BD52A">
+              <File Id="sessiontester_user_guide.html" Source="..\dist\resources\sessiontester_user_guide.html" KeyPath="yes" Checksum="yes"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <!-- Start Menu Configuration -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="F0535946-11B6-419c-9F19-BF543BC91522" >
+        <Shortcut Id="ApplicationStartMenuShortcut"
+            Name="Session Tester"
+            Description="Session Tester"
+            Target="[INSTALLLOCATION]SessionTester.exe"
+            WorkingDirectory="INSTALLLOCATION" />
+        <Shortcut Id="UserGuide"
+                    Name="Session Tester User Guide"
+                    Description="Session Tester User Guide"
+                    Target="[INSTALLLOCATION]resources\sessiontester_user_guide.html"
+                    WorkingDirectory="INSTALLLOCATION" />        
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\SessionTester" Name="installed" Type="integer" Value="1" KeyPath="yes" />        
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="SessionTester" Title="Session Tester" Level="1">
+      <ComponentRef Id="SessionTester.exe" />
+      <ComponentRef Id="priming.txt" />
+      <ComponentRef Id="testheuristicscheatsheetv1.pdf" />
+      <ComponentRef Id="sessiontester_user_guide.html" />
+      <ComponentRef Id="appframework_1.0.3.jar" />
+      <ComponentRef Id="AppleJavaExtensions.jar" />
+      <ComponentRef Id="swing_worker_1.1.jar" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+  </Product>
+</Wix>
