@@ -10,13 +10,13 @@ Note that this application have ONLY been tested in google chrome and therefor d
 The application has been developed in sublime texteditor and it's strongly recommended to use it for further developing as it has not yet been tested in another IDE, though of course it's optional to use whatever IDE a developer would want to use. Sublime texteditor is free-to-use and can been found at: http://www.sublimetext.com/
 To run the application locally a NodeJS server is required. Download it from https://nodejs.org/ and follow their installation-guide.
 
-Step 1:
+*Step 1:
 clone this repo from github
-Step 2:
+*Step 2:
 Install NodeJS
-Step 3:
+*Step 3:
 Open a console window(winkey+r and type cmd)
-Step 4:
+*Step 4:
 Go to the src-folder and type node server.js 8000
 
 Example on how to run the nodeJS server
