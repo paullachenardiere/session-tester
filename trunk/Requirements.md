@@ -10,13 +10,13 @@ Note that this application have ONLY been tested in google chrome and therefor d
 The application has been developed in sublime texteditor and it's strongly recommended to use it for further developing as it has not yet been tested in another IDE, though of course it's optional to use whatever IDE a developer would want to use. Sublime texteditor is free-to-use and can been found at: http://www.sublimetext.com/
 To run the application locally a NodeJS server is required. Download it from https://nodejs.org/ and follow their installation-guide.
 
-Step 1:
+* Step 1:
 clone this repo from github
-Step 2:
+* Step 2:
 Install NodeJS
-Step 3:
+* Step 3:
 Open a console window(winkey+r and type cmd)
-Step 4:
+* Step 4:
 Go to the src-folder and type node server.js 8000
 
 Example on how to run the nodeJS server
@@ -26,8 +26,8 @@ Open a browser-window and type localhost:8000 in the adress field. And you're go
 To get in touch with the developers for Session Testers you can email them at:
 
 * Christian Karlsson - [karlsson.j.christian@gmail.com](karlsson.j.christian@gmail.com)
-* Paul Lachenardière - [poplabbet@gmail.com]
-* Martin Jansson (Projektledare) - martin.jansson@qualityminds.se
+* Paul LachenardiÃ¨re - [poplabbet@gmail.com](poplabbet@gmail.com)
+* Martin Jansson (Project Manager) - [martin.jansson@qualityminds.se] (martin.jansson@qualityminds.se)
 
 
 
