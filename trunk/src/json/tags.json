@@ -1,0 +1,10 @@
+var sessionBean = 
+		{
+			"id": ,
+			"start": ,
+			"end": ,
+			"duration": ,
+			"tester": ,
+			"mission": ,
+			"notes": [],
+		}
