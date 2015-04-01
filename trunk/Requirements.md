@@ -26,8 +26,8 @@ Open a browser-window and type localhost:8000 in the adress field. And you're go
 To get in touch with the developers for Session Testers you can email them at:
 
 * Christian Karlsson - [karlsson.j.christian@gmail.com](karlsson.j.christian@gmail.com)
-* Paul Lachenardière - [poplabbet@gmail.com]
-* Martin Jansson (Projektledare) - martin.jansson@qualityminds.se
+* Paul Lachenardière - [poplabbet@gmail.com](poplabbet@gmail.com)
+* Martin Jansson (Project Manager) - [martin.jansson@qualityminds.se](martin.jansson@qualityminds.se)
 
 
 
