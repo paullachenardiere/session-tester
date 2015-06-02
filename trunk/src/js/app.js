@@ -20,13 +20,43 @@
 		// Calls with "ng-init" on page load.
 		this.init = function() {
 			this.findOldSession();
-		};
+		}
 
 		
 		//Option Bar
 		this.save = function () {
-		alert("Generating Xml (not implemented)");
+			//Puts the value of notes in a variable
+			var textToWrite = document.getElementById("notes").value;
+			//Formats the text area
+			textToWrite = textToWrite.replace(/\n/g, "\r\n");
+			//Creates a .txt file
+			var textFileAsBlob = new Blob([textToWrite], {type:'text/plain;charset=utf-8;'});
+			//Gives the .txt file a name (the Mission name)
+			var fileNameToSaveAs = document.getElementById("missionId").value;
+			//Makes a downloadable link to click
+			var downloadLink = document.createElement("a");
+			downloadLink.download = fileNameToSaveAs;
+			//The hidden name for the link
+			downloadLink.innerHTML = "My Hidden Link";
+			//Allows the code to work in Gecko based browsers
+			window.URL = window.URL || window.webkitURL;
+			//Creates the link object
+			downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+			//Remove it from the DOM allowing multiple saves
+			downloadLink.onclick = destroyClickedElement;
+			//Hides the link
+			downloadLink.style.display = "none";
+			//Add link to DOM
+			document.body.appendChild(downloadLink);
+			//Click the link
+			downloadLink.click();
 		};
+
+		//Function to remove link from DOM
+		function destroyClickedElement(event) {
+		document.body.removeChild(event.target);
+		};
+
 		this.preferences = function () {
 		};
 		this.generateWebReport = function () {
@@ -446,6 +476,7 @@
         		self.toggleAnimation('icon','animated wobble');
         		
         		if($scope.generatedXml === false) {
+        			save();
         		//Simulated click deactivated
         		//document.getElementById("saveAndDownload").click();
         		// TODO --- setGeneratedXml is set to true but don't do anything yet... 
