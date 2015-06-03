@@ -7,7 +7,7 @@
 	<div class="selectTagDiv" ng-class="session.getSelectTagStyle()">
 		<select class="selectTag"
 				ng-model="selectedTag"
-				ng-options="tagitem.name for tagitem in session.getTags()"
+				ng-options="tag.name for tag in tags"
 				ng-change="session.addTag(selectedTag.name)"
 				ng-disabled="!running">
 				<option value="">Select tag

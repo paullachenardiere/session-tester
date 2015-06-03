@@ -1,10 +1,22 @@
-var sessionBean = 
-		{
-			"id": ,
-			"start": ,
-			"end": ,
-			"duration": ,
-			"tester": ,
-			"mission": ,
-			"notes": [],
-		}
+[
+		   {
+			"name": "#notes",
+		   	"id": 1,
+		   	"notes": ""
+		   	},
+		   	{
+		   	
+		   	"name": "#bug",
+		   	"id": 2,
+		   	"notes": ""
+		   	},
+		   	{
+		   	 
+		   	"name": "#issue",
+		   	"id": 3,
+		   	"notes": ""
+		   	}
+	]
+
+
+

@@ -1,4 +1,8 @@
-primes: [
+
+[
+{
+"primes":"The truth is out there","The owls are not what they seem",
+"Fire, walk with me...",
 "Consider self-reference.",
 "What are the boundaries?",
 "Try something negative.",
@@ -8,7 +12,7 @@ primes: [
 "Consider the opposite.",
 "Unless...",
 "What about time?",
-"Do you mean "the", or do you really mean "a"?",
+'Do you mean "the", or do you really mean "a"?',
 "Ask someone else.",
 "Is there a DIFFERENT boundary?",
 "What can you vary?",
@@ -81,7 +85,7 @@ primes: [
 "What about accessibility?",
 "What do you see?",
 "Describe this feature in one sentence.",
-"Have you thought of "rule of three"?",
+'Have you thought of "rule of three"?',
 "What do you hear?",
 "How much memory is being consumed?",
 "How's your memory?",
@@ -92,4 +96,5 @@ primes: [
 "Generate errors.",
 "Maximize. Minimize. Repeat.",
 "What do you see now that you didn't see before?"
+}
 ]

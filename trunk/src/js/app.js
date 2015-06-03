@@ -1,8 +1,16 @@
 (function() {
-	var app = angular.module('sessionTester', ['tagService', 'sessionService']);
+	var app = angular.module('sessionTester', ['tagService', 'sessionService', ]);
 
 	app.controller("sessionController", function($scope, $timeout, $interval,
 		SessionService, TagService) {
+
+		//Function to grab JSON from tagService
+		var promise = TagService.getTag();
+		promise.then(function (data)
+		{
+			$scope.tags = data.data;
+			console.log($scope.tags);
+		});
 	
 		var sessionBean;
 		$scope.currentPrime = undefined;
@@ -20,6 +28,7 @@
 		// Calls with "ng-init" on page load.
 		this.init = function() {
 			this.findOldSession();
+			
 		}
 
 		
@@ -166,6 +175,7 @@
 			$scope.done = bool;
 		};
 
+
 		this.startSession = function() {  
 			
 			this.start = function() {
@@ -182,7 +192,6 @@
 			
 			sessionBean.id = 1;
 			sessionBean.start = new Date().toString();
-			this.addTag("@NOTES");
 			setRunning(true);
 			setDone(false);
 			setGeneratedXml(false);
@@ -283,7 +292,7 @@
 				return TagService.primes[random];	
 		};		
 		
-		var promise;
+		
 		this.primeMe = function() {
 			var self = this;
 			$timeout.cancel(promise);
@@ -374,6 +383,7 @@
 			console.log('new and empty session = ', sessionBean);
 			return sessionBean;		
 		}
+		
 		//Function to save TextArea to .txt file
 		function saveToFile() {
 			//Puts the value of notes in a variable
@@ -404,7 +414,7 @@
 
 		}
 
-		//Function to remove link from DOM
+		//Function to remove downloaded link from DOM
 		function destroyClickedElement(event) {
 		document.body.removeChild(event.target);
 		};

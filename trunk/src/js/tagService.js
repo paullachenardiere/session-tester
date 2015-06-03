@@ -1,133 +1,20 @@
 (function() {
 var services = angular.module('tagService',[]);
 
-services.service('TagService', function() {
-	var service = {
+services.service('TagService', function($http, $q) {
+
+	//Service to grab JSON from tags.json
+	var deferred = $q.defer();
+	$http.get('json/tags.json').then(function (data)
+	{
+		deferred.resolve(data);
+	});
 	
-	tags: [
-		{name: "@area"},
-		{name: "@bug"},
-		{name: "@data"},
-		{name: "@enviroment"},
-		{name: "@issue"},
-		{name: "@notes"},
-		{name: "@task"},
-		{name: "@timestamp"}
-		],
-	
-	primes: [
-"The truth is out there",
-"The owls are not what they seem",
-"Fire, walk with me...",
-"Consider self-reference.",
-"What are the boundaries?",
-"Try something negative.",
-"Testability first.",
-"Who's your client?",
-"What's the language?",
-"Consider the opposite.",
-"Unless...",
-"What about time?",
-'Do you mean "the", or do you really mean "a"?',
-"Ask someone else.",
-"Is there a DIFFERENT boundary?",
-"What can you vary?",
-"What's the rate?",
-"When was the last time it changed? Why?",
-"Draw a blank.",
-"What's the bigger picture?",
-"What would <insert name here> do?",
-"What's the tip of the iceberg? What's down below?",
-"Is this good enough?",
-"Disable it!",
-"Starve it!",
-"Overwhelm it!",
-"Who cares?",
-"Who's in charge?",
-"Wait.... do that again.",
-"Change your mind.",
-"What's the point?",
-"What does the user want to do?",
-"Why would a user do that?",
-"Is that the most complicated test?",
-"Is that the simplest test?",
-"What time is it?",
-"What do the numbers tell you?",
-"Can you interpret it in different ways?",
-"Describe the system in one sentence.",
-"Look for vague instructions.",
-"Look carefully at the words.",
-"What's constraining you?",
-"What are the inputs?",
-"What's going on behind the scenes?",
-"Can you hear that?",
-"Backspace.",
-"Draw a picture of the entire system.",
-"Talk to a user.",
-"Why would a user do that?",
-"Frustrate the flow.",
-"Break the rules.",
-"Follow the rules.",
-"Mouse wheel.",
-"Only use the keyboard.",
-"High contrast mode.",
-"How do you KNOW that worked? What might be fooling you?",
-"What are sales people saying about this?",
-"What laws might apply?",
-"Try something radical.",
-"A change would do you good.",
-"What's on the clock?",
-"Look out the window.",
-"Ask for help.",
-"What goals are the users trying to achieve?",
-"How does this software make someone's life easier?",
-"Draw a picture.",
-"How many are there?",
-"What about special characters.",
-"What are your favorite testing numbers?",
-"Time for a walk?",
-"Defocus.",
-"Focus.",
-"What are you missing?",
-"What would Grandma do?",
-"Do you know why you're doing that?",
-"Plunge in and quit.",
-"What's on the floor?",
-"Look on your desk.",
-"What are the outputs?",
-"Look at the source.",
-"What are you listening to?",
-"What are your favorite testing numbers?",
-"What about accessibility?",
-"What do you see?",
-"Describe this feature in one sentence.",
-'Have you thought of "rule of three"?',
-"What do you hear?",
-"How much memory is being consumed?",
-"How's your memory?",
-"Write down three ideas now!",
-"Test the first thing you see.",
-"Frustrate the flow.",
-"Try touring in different ways.",
-"Generate errors.",
-"Maximize. Minimize. Repeat.",
-"What do you see now that you didn't see before?"
-],
+	this.getTag = function() {
+		return deferred.promise;	
+	}
 
-    aboutDummy: ["Labores accusata efficiendi an nec. Pro ex equidem platonem, ea eum labore imperdiet, ullum malorum cu eum. Modus sonet quando in pro, has cu iudicabit reformidans philosophia, regione omittam argumentum has ad. Recusabo voluptatum mea ea. Cum utroque offendit te, dicat minimum disputando mei ut. Labores accusata efficiendi an nec. Pro ex equidem platonem, ea eum labore imperdiet, ullum malorum cu eum. Modus sonet quando in pro, has cu iudicabit reformidans philosophia, regione omittam argumentum has ad. Recusabo voluptatum mea ea. Cum utroque offendit te, dicat minimum disputando mei ut. Labores accusata efficiendi an nec. Pro ex equidem platonem, ea eum labore imperdiet, ullum malorum cu eum. Modus sonet quando in pro, has cu iudicabit reformidans philosophia, regione omittam argumentum has ad. Recusabo voluptatum mea ea. Cum utroque offendit te, dicat minimum disputando mei ut. Labores accusata efficiendi an nec. Pro ex equidem platonem, ea eum labore imperdiet, ullum malorum cu eum. Modus sonet quando in pro, has cu iudicabit reformidans philosophia, regione omittam argumentum has ad. Recusabo voluptatum mea ea. Cum utroque offendit te, dicat minimum disputando mei ut...."],
-
-     about: ["Session Tester is an ongoing opensource project. Previously written as a Java Swing application by Jonathan Kohl. This version is a total rewrite in Html5 using AngularJs. Developers of the AngularJs version are Paul Lachenardiére and Christian Karlsson. Supervised by Martin Jansson @ QualityMinds."],
-
-     links: ["https://github.com/qualityminds/session-tester"],
-
-	 contacts: ["Paul Lachenardière | poplabbet[at]gmail.com",
-	 		   	"Christian Karlsson | karlsson.j.christian[at]gmail.com",
-	 			"Martin Jansson     | martin.jansson[at]qualityminds.se"]
-
-	}; 
-	return service;
 });
-
 
 //end
 })();
