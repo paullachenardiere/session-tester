@@ -1,8 +1,8 @@
 (function() {
-	var app = angular.module('sessionTester', ['tagService', 'sessionService', ]);
+	var app = angular.module('sessionTester', ['tagService', 'sessionService','primeService' ]);
 
 	app.controller("sessionController", function($scope, $timeout, $interval,
-		SessionService, TagService) {
+		SessionService, TagService, PrimeService) {
 
 		//Function to grab JSON from tagService
 		var promise = TagService.getTag();
@@ -11,6 +11,14 @@
 			$scope.tags = data.data;
 			console.log($scope.tags);
 		});
+		//Function to grab JSON from primeService
+		var promise = PrimeService.getPrimes();
+		promise.then(function (data)
+		{
+			$scope.primes = data.data[0].primes;
+			console.log($scope.primes);
+
+	});
 	
 		var sessionBean;
 		$scope.currentPrime = undefined;
@@ -20,7 +28,7 @@
 		$scope.generatedXml = false;
 		$scope.minutesNiceName = '0';
 		$scope.secondsNiceName = '00'; 	
-		$scope.version = "0.6 | (Beta)";
+		$scope.version = "0.7 | (Beta)";
 		$scope.angularVersion = angular.version;
 		$scope.animations = {on : true};
 		var self = this;
@@ -126,19 +134,9 @@
 		};
 
 
-		this.addTag = function(selectedTag) {
-			if(selectedTag === '@timestamp') {
-				var date = new Date().toString();
-				selectedTag = selectedTag + " " + "["+date+"]";
-			}	
-			
-			if(sessionBean.notes.length === 0) {
-				sessionBean.notes = sessionBean.notes + selectedTag.toUpperCase();
-			}
-			else {
-				sessionBean.notes = sessionBean.notes + '\n' + selectedTag.toUpperCase();	
-			}
-			sessionBean.notes = sessionBean.notes + '\n';
+		this.addTag = function(name) {
+			sessionBean.notes += name.toUpperCase();
+			sessionBean.notes += '\n\n';
 			this.setFocusDelay(0, 'notes');
 		};
 
@@ -288,8 +286,8 @@
 		};
 
 		var getNextRandomPrime = function() {
-			var random = Math.floor((Math.random() * TagService.primes.length));
-				return TagService.primes[random];	
+			var random = Math.floor((Math.random() * $scope.primes.length));
+				return $scope.primes[random];	
 		};		
 		
 		

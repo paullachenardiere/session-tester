@@ -1,20 +1,17 @@
 [
 		   {
 			"name": "#notes",
-		   	"id": 1,
-		   	"notes": ""
+		   	"id": 1
 		   	},
 		   	{
 		   	
 		   	"name": "#bug",
-		   	"id": 2,
-		   	"notes": ""
+		   	"id": 2
 		   	},
 		   	{
 		   	 
 		   	"name": "#issue",
-		   	"id": 3,
-		   	"notes": ""
+		   	"id": 3
 		   	}
 	]
 

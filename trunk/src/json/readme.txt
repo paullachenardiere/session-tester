@@ -1,2 +1,1 @@
-These json files will be used later...
-Data is currently mocked directly in services
+Tags and Primes are now JSON objects
