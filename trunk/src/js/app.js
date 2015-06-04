@@ -16,8 +16,6 @@
 		promise.then(function (data)
 		{
 			$scope.primes = data.data[0].primes;
-			console.log($scope.primes);
-
 	});
 	
 		var sessionBean;

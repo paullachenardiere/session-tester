@@ -25,6 +25,11 @@ body {
 	float: left;
 	padding: 0em;
 }
+.iconButton {
+	position: relative;
+	float:left;
+}
+
 .headLine {
 	margin-top: -0.23em;
 	margin-bottom: 0em;
@@ -113,6 +118,47 @@ textarea {
 	float: right;
 	color: rgba(130,80,25,1);
 }
+.btnIconBug {
+	padding:15px 20px;
+	position: absolute;
+  	top: 28%;
+ 	left: 0;
+  	z-index: 1000;
+  	float: left;
+	border:none;
+	background-image:url('/img/bug.png');
+	background-size: cover;
+
+
+}
+.btnIconNotes {
+	padding:15px 15px;
+	position: absolute;
+  	top: 34%;
+ 	left: 0;
+ 	margin-left: 9px;
+  	z-index: 1000;
+  	float: left;
+	border:none;
+	background-image:url('/img/notes.png');
+	background-size: cover;
+
+
+}
+.btnIconIssue {
+	padding:15px 15px;
+	position: absolute;
+  	top: 40%;
+ 	left: 0;
+ 	margin-left: 5px;
+  	z-index: 1000;
+  	float: left;
+	border:none;
+	background-image:url('/img/issue.png');
+	background-size: cover;
+
+
+}
 .btnPrimeMe:hover {
 	color: rgba(200,100,20,0.8);	
 	text-shadow: 0px 0px 20px rgba(200,100,20,0.9);
@@ -146,6 +192,8 @@ textarea {
 	text-shadow: 0px 0px 25px rgba(0,255,0, 0.5);
 }
 .buttonpanel {
+}
+.iconpanel {
 }
 .iframe {
 	padding: 1em;

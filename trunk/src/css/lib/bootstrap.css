@@ -3023,7 +3023,15 @@ fieldset[disabled] .btn {
   background-color: #fff;
   border-color: #ccc;
 }
+.btn-icons {
+  color:#333;
+  background-color: none;
+  border-color: #ccc;
+}
 .btn-default:hover,
+.btn-icons:hover,
+.btn.icons:focus,
+.btn-icons:active,
 .btn-default:focus,
 .btn-default.focus,
 .btn-default:active,
