@@ -1,15 +1,24 @@
 <div class "iconpanel">
-<div ng-repeat="tag in tags">
-	
 	<button class="btn btn-icons btn-sm btnIconBug" type="button"
-			ng-click="session.addTag();">
+	   		tooltip="Add BUG"
+          	tooltip-placement="left"
+          	tooltip-trigger="mouseenter"
+			ng-class="{'disabled': !running}"
+			ng-click="session.addTag(2)">
 	</button>
 	<button class="btn btn-icons btn-sm btnIconNotes" type="button"
-			ng-click="session.addTag()">
+			tooltip="Add NOTES"
+          	tooltip-placement="left"
+          	tooltip-trigger="mouseenter"
+			ng-class="{'disabled': !running}"
+			ng-click="session.addTag(1)">
 	</button>
 	<button class="btn btn-icons btn-sm btnIconIssue" type="button"
-			ng-click="session.addTag()">
+			tooltip="Add ISSUE"
+          	tooltip-placement="left"
+          	tooltip-trigger="mouseenter"
+			ng-class="{'disabled': !running}"
+			ng-click="session.addTag(3)">
 	</button>
-	
-	</div>
+
 </div>

@@ -1,23 +1,9 @@
 (function() {
-	var app = angular.module('sessionTester', ['tagService', 'sessionService','primeService' ]);
+	var app = angular.module('sessionTester', ['tagService', 'sessionService','primeService','ui.bootstrap' ]);
 
 	app.controller("sessionController", function($scope, $timeout, $interval,
 		SessionService, TagService, PrimeService) {
 
-		//Function to grab JSON from tagService
-		var promise = TagService.getTag();
-		promise.then(function (data)
-		{
-			$scope.tags = data.data;
-			console.log($scope.tags);
-		});
-		//Function to grab JSON from primeService
-		var promise = PrimeService.getPrimes();
-		promise.then(function (data)
-		{
-			$scope.primes = data.data[0].primes;
-	});
-	
 		var sessionBean;
 		$scope.currentPrime = undefined;
 		$scope.running = false; 
@@ -30,10 +16,28 @@
 		$scope.angularVersion = angular.version;
 		$scope.animations = {on : true};
 		var self = this;
+
+		//Function to grab JSON from tagService
+		var promise = TagService.getTag();
+		promise.then(function (data)
+		{
+			$scope.tags = data.data[0].tags;
+			console.log($scope.tags);
+	
+			
+		});
+		//Function to grab JSON from primeService
+		var promise = PrimeService.getPrimes();
+		promise.then(function (data)
+		{
+			$scope.primes = data.data[0].primes;
+		});
+
 		
 		// Calls with "ng-init" on page load.
 		this.init = function() {
 			this.findOldSession();
+			
 			
 		}
 
@@ -130,9 +134,21 @@
 				document.getElementById(id).blur();
 			},time);
 		};
+		
+		
+		this.getTagById = function(TagId) {
+			var item;
+			angular.forEach($scope.tags, function(value, key) {
+				if(value.TagId == TagId) {
+					item = value.name;
+				}
+			});
 
-
-		this.addTag = function(name) {
+			return item;
+		};
+		
+		this.addTag = function(tagID) {
+			var name = this.getTagById(tagID);
 			sessionBean.notes += name.toUpperCase();
 			sessionBean.notes += '\n\n';
 			this.setFocusDelay(0, 'notes');

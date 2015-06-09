@@ -13,8 +13,6 @@ services.service('TagService', function($http, $q) {
 	this.getTag = function() {
 		return deferred.promise;	
 	}
-	
-
 });
 
 //end

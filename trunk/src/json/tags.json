@@ -1,19 +1,22 @@
-[
-		   {
-			"name": "#notes",
-		   	"id": 1
-		   	},
-		   	{
-		   	
-		   	"name": "#bug",
-		   	"id": 2
-		   	},
-		   	{
-		   	 
-		   	"name": "#issue",
-		   	"id": 3
-		   	}
-	]
-
+	
+[ 
+	{
+	 	"tags": [
+			   {
+				"name": "#notes",
+			   	"TagId": 1
+			   	},
+			   	{
+			   	"name": "#bug",
+			   	"TagId": 2
+			   	},
+			   	{
+			   	 
+			   	"name": "#issue",
+			   	"TagId": 3
+			   	}		
+		]
+	}
+]
 
 
