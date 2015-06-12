@@ -149,8 +149,13 @@
 		
 		this.addTag = function(tagID) {
 			var name = this.getTagById(tagID);
-			sessionBean.notes += name.toUpperCase();
-			sessionBean.notes += '\n\n';
+			if(sessionBean.notes.length === 0) {
+				sessionBean.notes = sessionBean.notes + name.toUpperCase();
+			}
+			else {
+				sessionBean.notes = sessionBean.notes + '\n' + name.toUpperCase();	
+			}
+			sessionBean.notes = sessionBean.notes +'\n';
 			this.setFocusDelay(0, 'notes');
 		};
 
@@ -398,17 +403,26 @@
 		
 		//Function to save TextArea to .txt file
 		function saveToFile() {
-			//Puts the value of notes in a variable
-			var textToWrite = document.getElementById("notes").value;
-			//Formats the text area
+			//Puts the value of localStorage in a variable
+			var textToWrite = localStorage.getItem("sessionBean");
+			//Formats localStorage to text
+			var json = JSON.stringify(textToWrite);
 			textToWrite = textToWrite.replace(/\n/g, "\r\n");
+    		textToWrite = textToWrite.replace(/\t/g,'&nbsp;&nbsp;&nbsp;');
 			//Creates a .txt file
-			var textFileAsBlob = new Blob([textToWrite], {type:'text/plain;charset=utf-8;"'});
+			var textFileAsBlob = new Blob([json], {type:"application/json"});
 			//Gives the .txt file a name (the Mission name)
 			var fileNameToSaveAs = document.getElementById("missionId").value;
 			//Makes a downloadable link to click
 			var downloadLink = document.createElement("a");
-			downloadLink.download = fileNameToSaveAs;
+			downloadLink.download = fileNameToSaveAs + ".json";
+			//Check if fileName is empty, then return.
+			if(fileNameToSaveAs == "") {
+				alert("No values to save");
+				return;
+
+			}
+			
 			//The hidden name for the link
 			downloadLink.innerHTML = "My Hidden Link";
 			//Allows the code to work in Gecko based browsers

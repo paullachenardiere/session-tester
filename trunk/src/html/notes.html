@@ -8,7 +8,7 @@
 		<select class="selectTag"
 				ng-model="selectedTag"
 				ng-options="tag.name for tag in tags"
-				ng-change="session.addTag(selectedTag.name)"
+				ng-change="session.addTag(selectedTag.TagId)"
 				ng-disabled="!running">
 				<option value="">Select tag
 				</option>
@@ -22,5 +22,6 @@
 				  spellcheck='false'	
 				  placeholder={{session.getDefaultNotes()}}
 				  ng-disabled="!running">
+				  
 		</textarea>
 	</div>
