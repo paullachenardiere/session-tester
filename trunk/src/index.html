@@ -33,9 +33,13 @@
 <body ng-controller="sessionController as session"
 	  ng-init="session.init()"
 	  ng-keyup="session.pauseKey($event, false)">
+	  <iframe id="missionId" style="display:none;">
+	  </iframe>
+
 	
 	<div ng-view="mainView" 
 		 class="mainframe noselect">
+
 	
 		<!-- Option bar -->
 		<div ng-include="'html/optionbar.html'"></div>

@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('sessionTester', ['tagService', 'sessionService','primeService','ui.bootstrap' ]);
+	var app = angular.module('sessionTester', ['tagService', 'sessionService','primeService','ui.bootstrap']);
 
 	app.controller("sessionController", function($scope, $timeout, $interval,
 		SessionService, TagService, PrimeService) {
@@ -46,6 +46,7 @@
 		
 		this.save = function () {
 			saveToFile();
+
 			};
 
 		this.preferences = function () {
@@ -407,10 +408,8 @@
 			var textToWrite = localStorage.getItem("sessionBean");
 			//Formats localStorage to text
 			var json = JSON.stringify(textToWrite);
-			textToWrite = textToWrite.replace(/\n/g, "\r\n");
-    		textToWrite = textToWrite.replace(/\t/g,'&nbsp;&nbsp;&nbsp;');
 			//Creates a .txt file
-			var textFileAsBlob = new Blob([json], {type:"application/json"});
+			var textFileAsBlob = new Blob([json], {type:"application/octet-stream"});
 			//Gives the .txt file a name (the Mission name)
 			var fileNameToSaveAs = document.getElementById("missionId").value;
 			//Makes a downloadable link to click
@@ -439,6 +438,8 @@
 			downloadLink.click();
 
 		}
+
+
 
 		//Function to remove downloaded link from DOM
 		function destroyClickedElement(event) {
