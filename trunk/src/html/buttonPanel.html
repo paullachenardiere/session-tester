@@ -34,10 +34,17 @@
 			ng-click="session.extendDuration()"
 			ng-disabled="!running">EXTEND
 	</button>
-	<button class="btn btn-default btn-sm" type="button"
+	<button class="btn btn-default btn-sm" type="button" 
 			ng-click="session.save()"
 			ng-disabled="!running">SAVE
 	</button>
+		
+	<div ng-click="load()" class="fileUpload btn btn-default btn-sm">
+    <input id="uploadBtn" type="file" class="upload"/>
+    <span>LOAD</span>
+   
+	</div>
+
 	<button class="btn btn-default fo btn-sm btnPrimeMe"
 			type="button" 
 			ng-click="session.primeMe()">PRIME ME!

@@ -203,3 +203,18 @@ textarea {
 .cheatsheet {
 	background-color: rgb(20,20,20);
 }
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+	cursor: pointer;
+    position: absolute;
+    width:44px;
+    height:24px;
+    font-size: 12px;
+  	line-height: 1.5;
+  	border-radius: 3px;
+    opacity: 0;
+    
+}
