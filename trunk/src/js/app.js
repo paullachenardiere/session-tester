@@ -452,7 +452,7 @@
 		};
 
 		//Function to load json.file to application
-		$scope.load = function loadFromFile() {
+		$scope.load = function loadFromFile(modalBool) {
 			//External data file handling starts here
  			var control = document.getElementById("uploadBtn");    
     	 	
@@ -468,11 +468,12 @@
 		    	 reader.onerror = function(event){
 		             console.error("File could not be read! Code " + event.target.error.code);
 		         };        
+		         
 		         console.log("Filename: " + control.files[0].name);
-		         reader.readAsText(control.files[0]); 
+		         reader.readAsText(control.files[0]);
+		         location.reload();
 		               
-     		}, false);
-
+     		}, false); 
 		};
 
 		function sessionBeanIsDefined() {
