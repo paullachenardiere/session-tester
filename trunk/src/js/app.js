@@ -51,7 +51,8 @@
 		
 		this.load = function () {
 			loadFromFile();
-			this.resumeSession();
+
+
 		};
 
 		this.preferences = function () {
@@ -125,8 +126,11 @@
 		};
 		  
 		function saveSessionToLocalStorage(object) {
-			if(sessionBeanIsDefined())
-			localStorage.setItem("sessionBean", JSON.stringify(object));
+			if(sessionBeanIsDefined()) {
+			localStorage.setItem("sessionBean", JSON.stringify(object));	
+			}
+
+			
 		}
 
 		this.setFocusDelay = function(time, id) {
@@ -412,7 +416,7 @@
 			//Puts the value of localStorage in a variable
 			var textToWrite = localStorage.getItem("sessionBean");
 			//Formats localStorage to text
-			var json = JSON.stringify(textToWrite);
+			var json = textToWrite;
 			//Creates the file and opens save file dialog
 			var textFileAsBlob = new Blob([json], {type:"application/octet-stream"});
 			//Gives the .txt file a name (the Mission name)
@@ -453,21 +457,22 @@
  			var control = document.getElementById("uploadBtn");    
     	 	
     	 	control.addEventListener("change", function(event){    
-         	var reader = new FileReader();        
-         	
-         	reader.onload = function(event){
-            
-            var contents = event.target.result;
-			document.getElementById('notes').value = contents; 
-    	 };        
-         
-         reader.onerror = function(event){
-             console.error("File could not be read! Code " + event.target.error.code);
-         };        
-         
-         console.log("Filename: " + control.files[0].name);
-         reader.readAsText(control.files[0]);       
+	         	var reader = new FileReader();        
+	         	
+	         	reader.onload = function(event){        
+		            sessionBean = JSON.parse(event.target.result);    	 	
+					saveSessionToLocalStorage(sessionBean);
+
+	    	 	};
+
+		    	 reader.onerror = function(event){
+		             console.error("File could not be read! Code " + event.target.error.code);
+		         };        
+		         console.log("Filename: " + control.files[0].name);
+		         reader.readAsText(control.files[0]); 
+		               
      		}, false);
+
 		};
 
 		function sessionBeanIsDefined() {
